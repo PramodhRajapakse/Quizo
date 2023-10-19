@@ -16,12 +16,12 @@ Welcome to **Quizzo**, a fun and educational quiz app. This interactive quiz app
 
 1. **Clone the Repository:**
    ```
-   git clone https://github.com/your-username/QuizzyMind.git
+   git clone https://github.com/your-username/Quizzo.git
    ```
 
 2. **Navigate to the Project Directory:**
    ```
-   cd QuizzyMind
+   cd Quizzo
    ```
 
 3. **Open index.html in Your Browser:**
