@@ -13,8 +13,33 @@ import {
   from 'mdb-react-ui-kit';
 import "../assets/styles/Login.css";
 import { Link } from "react-router-dom";
+import { useFormik } from 'formik';
+import { Error } from '../components/Error';
 
 const Login = () => {
+  const validate = values => {
+    const errors = {};
+
+    if (!values.email) {
+      errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+
+    return errors;
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validate: validate,
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   return (
     <MDBContainer className="my-5">
 
@@ -34,14 +59,34 @@ const Login = () => {
               </div>
 
               <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: '1px' }}>Sign into your account</h5>
+              <form onSubmit={formik.handleSubmit} noValidate>
+                <MDBRow className='mb-4 p-2'>
+                  <MDBInput
+                    label='Email address'
+                    id='email'
+                    type='email'
+                    size="lg"
+                    onChange={formik.handleChange}
+                    value={formik.values.email} />
+                  <Error show={formik.errors.email ? true : false} message={formik.errors.email} />
+                </MDBRow>
 
-              <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLg' type='email' size="lg" />
-              <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" />
+                <MDBRow className='mb-4 p-2'>
+                  <MDBInput
+                    label='Password'
+                    id='password'
+                    type='password'
+                    size="lg"
+                    onChange={formik.handleChange}
+                    value={formik.values.password} />
+                  <Error show={formik.errors.password ? true : false} message={formik.errors.password} />
+                </MDBRow>
 
-              <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Login</MDBBtn>
+                <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Login</MDBBtn>
+              </form>
+
               <a className="small text-muted" href="#!">Forgot password?</a>
               <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>Don't have an account? <Link to="/signup" style={{ color: '#393f81' }}>Register here</Link></p>
-
             </MDBCardBody>
           </MDBCol>
 
