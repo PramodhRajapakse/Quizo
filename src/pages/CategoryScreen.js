@@ -1,15 +1,27 @@
+import React from "react";
 import { CategoryButton } from "../components/CategoryButton";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../assets/styles/CategoryScreen.css";
 import cats from "../services/data.json";
 import { useEffect, useState } from "react";
+import { MDBBtn } from "mdb-react-ui-kit";
 
 const CategoryScreen = () => {
     const [categories, setCategories] = useState([]);
+    const [selectedCat, setSelectedCat] = useState(null);
+    let navigate = useNavigate();
 
     useEffect(() => {
         setCategories(cats.trivia_categories);
     }, []);
+
+    const chooseCategory = (val) => {
+        setSelectedCat(val)
+    }
+
+    const handleContinue = () => {
+        navigate("/details", { state: { category: selectedCat } });
+    }
 
 return (
     <div>
@@ -20,12 +32,12 @@ return (
         <div className="categoryContainer">
             {categories.map((category) => {
                 return (
-                    <CategoryButton label={category.name}/>
+                    <CategoryButton key={category.id} label={category.name} onClick={() => {chooseCategory(category)}}/>
                 )
             })}
         </div>
         <div className="d-flex justify-content-center">
-        <Link to="/details" className="d-flex btn btn-dark">Continue</Link>
+        <MDBBtn onClick={handleContinue} className="d-flex btn btn-dark">Continue</MDBBtn>
         </div>
     </div>
 )
