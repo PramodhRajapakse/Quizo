@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 	return (
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container-fluid">
+		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<div className="container-fluid">
 				<button
-					class="navbar-toggler"
+					className="navbar-toggler"
 					type="button"
 					data-mdb-toggle="collapse"
 					data-mdb-target="#navbarSupportedContent"
@@ -13,11 +13,11 @@ const NavBar = () => {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<i class="fas fa-bars"></i>
+					<i className="fas fa-bars"></i>
 				</button>
 
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<a class="navbar-brand mt-2 mt-lg-0" href="/">
+				<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<a className="navbar-brand mt-2 mt-lg-0" href="/">
 						<img
 							src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
 							height="15"
@@ -25,29 +25,29 @@ const NavBar = () => {
 							loading="lazy"
 						/>
 					</a>
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<Link class="nav-link" to="/dashboard">
-								Dashboard
+					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+						<li className="nav-item">
+							<Link className="nav-link" to="categories">
+								Categories
 							</Link>
 						</li>
-						<li class="nav-item">
-							<Link to="/" class="nav-link">
+						<li className="nav-item">
+							<Link to="/" className="nav-link">
 								Login
 							</Link>
 						</li>
-						<li class="nav-item">
-							<Link to="signup" class="nav-link">
+						<li className="nav-item">
+							<Link to="signup" className="nav-link">
 								Register
 							</Link>
 						</li>
 					</ul>
 				</div>
 
-				<div class="d-flex align-items-center">
-					<div class="dropdown">
+				<div className="d-flex align-items-center">
+					<div className="dropdown">
 						<a
-							class="dropdown-toggle d-flex align-items-center hidden-arrow"
+							className="dropdown-toggle d-flex align-items-center hidden-arrow"
 							href="/"
 							id="navbarDropdownMenuAvatar"
 							role="button"
@@ -56,7 +56,7 @@ const NavBar = () => {
 						>
 							<img
 								src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-								class="rounded-circle"
+								className="rounded-circle"
 								height="25"
 								alt="Black and White Portrait of a Man"
 								loading="lazy"
