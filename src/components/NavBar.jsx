@@ -27,8 +27,8 @@ const NavBar = () => {
 					</a>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<Link class="nav-link" to="/dashboard">
-								Dashboard
+							<Link class="nav-link" to="categories">
+								Categories
 							</Link>
 						</li>
 						<li class="nav-item">
