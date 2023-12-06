@@ -1,4 +1,8 @@
-.appTitle{
+.body {
+  height: 90vh;
+}
+
+.appTitle {
   font-weight: 700;
   font-size: 32px;
 }

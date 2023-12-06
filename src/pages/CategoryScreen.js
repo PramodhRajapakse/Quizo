@@ -2,7 +2,7 @@ import React from "react";
 import { CategoryButton } from "../components/CategoryButton";
 import { useNavigate } from "react-router-dom";
 import "../assets/styles/CategoryScreen.css";
-import cats from "../services/data.json";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
 
@@ -12,7 +12,16 @@ const CategoryScreen = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    setCategories(cats.trivia_categories);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/categories`);
+        setCategories(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const chooseCategory = (val) => {
@@ -24,7 +33,7 @@ const CategoryScreen = () => {
   }
 
   return (
-    <div>
+    <div style={{ height: "85vh" }}>
       <div className="container-fluid text-center">
         <p className="heading">Welcome to Quizo</p>
         <p className="detailText">Select category to start quiz</p>
@@ -32,12 +41,12 @@ const CategoryScreen = () => {
       <div className="categoryContainer">
         {categories.map((category) => {
           return (
-            <CategoryButton key={category.id} label={category.name} onClick={() => { chooseCategory(category) }} />
+            <CategoryButton key={category._id} label={category.categoryName} onClick={() => { chooseCategory(category) }} />
           )
         })}
       </div>
-      <div className="d-flex justify-content-center">
-        <MDBBtn onClick={handleContinue} className="d-flex btn btn-dark">Continue</MDBBtn>
+      <div className="d-flex justify-content-center w-100">
+        <MDBBtn onClick={handleContinue} className="w-25 btn btn-dark">Continue</MDBBtn>
       </div>
     </div>
   )

@@ -7,7 +7,6 @@ import {
   MDBCardImage,
   MDBRow,
   MDBCol,
-  MDBIcon,
   MDBInput
 }
   from 'mdb-react-ui-kit';
@@ -15,6 +14,7 @@ import "../assets/styles/Login.css";
 import { Link } from "react-router-dom";
 import { useFormik } from 'formik';
 import { Error } from '../components/Error';
+import logo from "../assets/images/quizo_logo.jpeg";
 
 const Login = () => {
   const validate = values => {
@@ -54,8 +54,7 @@ const Login = () => {
             <MDBCardBody className='d-flex flex-column'>
 
               <div className='d-flex flex-row mt-2'>
-                <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: '#ff6219' }} />
-                <span className="h1 fw-bold mb-0">Logo</span>
+                <img src={logo} height="70" alt="MDB Logo" loading="lazy" />
               </div>
 
               <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: '1px' }}>Sign into your account</h5>

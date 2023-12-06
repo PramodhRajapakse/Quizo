@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/images/quizo_logo.jpeg";
 
 const NavBar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+		<nav className="navbar navbar-expand-lg navbar-light">
 			<div className="container-fluid">
 				<button
 					className="navbar-toggler"
@@ -18,12 +19,7 @@ const NavBar = () => {
 
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<a className="navbar-brand mt-2 mt-lg-0" href="/">
-						<img
-							src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-							height="15"
-							alt="MDB Logo"
-							loading="lazy"
-						/>
+						<img src={logo} height="30" alt="MDB Logo" loading="lazy" />
 					</a>
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">

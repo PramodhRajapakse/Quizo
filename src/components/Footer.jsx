@@ -1,10 +1,15 @@
+import { colors } from "../assets/data/Colors";
+
 const Footer = () => {
 	return (
-		<footer className="bg-light text-center text-lg-start">
-			<div className="text-center p-3" style={{ backgroundColor: "#ff9b94" }}>
+		<footer className="bg-dark text-center text-lg-start">
+			<div
+				className="text-light text-center p-3"
+				style={{ backgroundColor: colors.primaryColorLight }}
+			>
 				© 2020 Copyright:
-				<a className="text-dark" href="https://mdbootstrap.com/">
-					MDBootstrap.com
+				<a className="text-light" href="/">
+					Quizo
 				</a>
 			</div>
 		</footer>
