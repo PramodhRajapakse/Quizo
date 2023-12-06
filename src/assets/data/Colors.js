@@ -1,4 +1,4 @@
 export const colors = {
-  primaryColorLight: "#5918AB",
+  primaryColorLight: "black",
   "primaryColor": "#1F0247"
 }

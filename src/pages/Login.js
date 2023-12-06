@@ -47,7 +47,7 @@ const Login = () => {
         <MDBRow className='g-0'>
 
           <MDBCol md='6'>
-            <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100' />
+            <MDBCardImage src='https://hips.hearstapps.com/hmg-prod/images/quiz-questions-answers-1669651278.jpg' alt="login form" className='rounded-start w-100' />
           </MDBCol>
 
           <MDBCol md='6'>
@@ -57,9 +57,9 @@ const Login = () => {
                 <img src={logo} height="70" alt="MDB Logo" loading="lazy" />
               </div>
 
-              <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: '1px' }}>Sign into your account</h5>
+              <h5 className="fw-normal my-2 pb-3" style={{ letterSpacing: '1px' }}>Sign into your account</h5>
               <form onSubmit={formik.handleSubmit} noValidate>
-                <MDBRow className='mb-4 p-2'>
+                <MDBRow className='mb-2 p-2'>
                   <MDBInput
                     label='Email address'
                     id='email'
@@ -84,8 +84,7 @@ const Login = () => {
                 <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Login</MDBBtn>
               </form>
 
-              <a className="small text-muted" href="#!">Forgot password?</a>
-              <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>Don't have an account? <Link to="/signup" style={{ color: '#393f81' }}>Register here</Link></p>
+              <p className="mb-5 pb-lg-2 text-muted">Don't have an account? <Link to="/signup" className='text-black'>Register here</Link></p>
             </MDBCardBody>
           </MDBCol>
 

@@ -99,7 +99,7 @@ const Quiz = () => {
           <Modal
             isOpen={modalOpen}
             onRequestClose={closeModal}
-            contentLabel="Example Modal"
+            contentLabel="Quiz Results"
             style={customStyles}
             onAfterClose={() => navigate("/categories")}
           >

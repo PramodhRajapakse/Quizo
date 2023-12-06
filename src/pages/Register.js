@@ -10,14 +10,16 @@ import {
   MDBInput
 }
   from 'mdb-react-ui-kit';
+import axios from 'axios';
 import "../assets/styles/Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
 import { Error } from '../components/Error';
 import logo from '../assets/images/quizo_logo.jpeg';
 
 
 const Register = () => {
+  const navigate = useNavigate();
 
   const validate = values => {
     const errors = {};
@@ -50,6 +52,22 @@ const Register = () => {
     return errors;
   };
 
+
+  const register = async (values) => {
+    try {
+      const userObj = {
+        "fullName": values.firstName + " " + values.lastName,
+        "email": values.email,
+        "password": values.password
+      }
+      const response = await axios.post(`http://localhost:8080/users`, userObj);
+      if (response.statusText === "Created")
+        navigate("login");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -60,18 +78,17 @@ const Register = () => {
     },
     validate: validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      register(values);
     },
   });
 
   return (
     <MDBContainer className="my-5">
-
       <MDBCard>
         <MDBRow className='g-0'>
 
           <MDBCol md='6'>
-            <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100' />
+            <MDBCardImage src='https://hips.hearstapps.com/hmg-prod/images/quiz-questions-answers-1669651278.jpg' alt="login form" className='rounded-start w-100' />
           </MDBCol>
 
           <MDBCol md='6'>
@@ -82,8 +99,8 @@ const Register = () => {
               </div>
 
               <form onSubmit={formik.handleSubmit} noValidate>
-                <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: '1px' }}>Create new account</h5>
-                <MDBRow className='mb-4'>
+                <h5 className="fw-normal my-2 pb-3" style={{ letterSpacing: '1px' }}>Create new account</h5>
+                <MDBRow className='mb-2'>
                   <MDBCol md='6'>
                     <MDBInput
                       label='First Name'
@@ -105,7 +122,7 @@ const Register = () => {
                     <Error show={formik.errors.lastName ? true : false} message={formik.errors.lastName} />
                   </MDBCol>
                 </MDBRow>
-                <MDBRow className='mb-4 p-2'>
+                <MDBRow className='p-2'>
                   <MDBInput
                     label='Email address'
                     id='email'
@@ -114,7 +131,7 @@ const Register = () => {
                     value={formik.values.email} />
                   <Error show={formik.errors.email ? true : false} message={formik.errors.email} />
                 </MDBRow>
-                <MDBRow className='mb-4 p-2'>
+                <MDBRow className='p-2'>
                   <MDBInput
                     label='Password'
                     id='password'
@@ -135,7 +152,7 @@ const Register = () => {
                   <Error show={formik.errors.confirmPassword ? true : false} message={formik.errors.confirmPassword} />
                 </MDBRow>
                 <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Register</MDBBtn>
-                <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>Have an account already? <Link to="/" style={{ color: '#393f81' }}>Login here</Link></p>
+                <p className="mb-5 pb-lg-2 text-muted" >Have an account already? <Link to="/" className='text-black'>Login here</Link></p>
               </form>
             </MDBCardBody>
           </MDBCol>
