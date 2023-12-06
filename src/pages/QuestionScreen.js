@@ -88,8 +88,8 @@ const Quiz = () => {
   return (
     <div className="quiz-container">
       {noQuestions ? (
-        <div className='loader'>
-          No questions for this category yet.
+        <div className='text-center p-4'>
+          <h1>No questions for this category yet.</h1>
         </div>
       ) : (
         <>
