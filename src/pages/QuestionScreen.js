@@ -1,73 +1,123 @@
-import React, { useState, useEffect, Children } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../assets/styles/QuestionScreen.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import he from 'he';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root'); // Set the root element for screen readers
+
 
 const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [noQuestions, setNoQuestions] = useState(false);
+  let [score, setScore] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  let [ansCount, setAnsCount] = useState(0);
   const location = useLocation();
   const category = location.state;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/questions/category/${category.category._id}`);
-        const processedQuestionsArray = response.data.map((question) => ({
-          ...question,
-          options: [question.correctAnswer, ...question.incorrectAnswers]
-        }));
-        setQuestions(processedQuestionsArray);
-        setLoading(false);
+        if (response.data.length === 0) {
+          setNoQuestions(true);
+        } else {
+          const processedQuestionsArray = response.data.map((question) => ({
+            ...question,
+            options: [question.correctAnswer, ...question.incorrectAnswers]
+          }));
+          setQuestions(processedQuestionsArray);
+        }
       } catch (error) {
         console.error(error);
-        setLoading(false);
       }
     };
 
     fetchData();
-  }, [category])
+  }, [category]);
 
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const customStyles = {
+    content: {
+      maxWidth: '400px',
+      maxHeight: '200px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add shadow for a card-like appearance
+      borderRadius: '10px', // Add border-radius for rounded corners
+      padding: '20px', // Add padding for content spacing
+      margin: 'auto',
+      textAlign: 'center',
+    },
+  };
 
   const handleAnswerSelect = (questionId, selectedAnswer) => {
+    calculateScore(questionId, selectedAnswer);
     setUserAnswers({
       ...userAnswers,
       [questionId]: selectedAnswer,
     });
   };
 
-  const calculateScore = () => {
-    let score = 0;
-    questions.forEach((question) => {
-      const userAnswer = userAnswers[question.id];
-      if (userAnswer === question.correctAnswer) {
-        score += 1;
-      }
-    });
-    return score;
+  const calculateScore = (id, selected) => {
+    ansCount++;
+    setAnsCount(ansCount);
+    if (ansCount === 10) {
+      setModalOpen(true);
+    } else {
+      questions.forEach((question) => {
+        if (question._id === id)
+          if (question.correctAnswer === selected) {
+            score++;
+            setScore(score);
+          }
+      })
+    }
+
   };
 
   return (
     <div className="quiz-container">
-      {loading ? (
+      {noQuestions ? (
         <div className='loader'>
-          Loading...
+          No questions for this category yet.
         </div>
       ) : (
         <>
           <h1>Quiz Time!</h1>
-          {questions?.map((question) => (
+          <div className="score-container">
+          </div>
+          <Modal
+            isOpen={modalOpen}
+            onRequestClose={closeModal}
+            contentLabel="Example Modal"
+            style={customStyles}
+            onAfterClose={() => navigate("/categories")}
+          >
+            <h2>Your Score</h2>
+            <p>Your score: {score} out of {questions.length}</p>
+            <button className='bg-dark text-light text-center mt-3' onClick={closeModal}>Continue</button>
+          </Modal>
+          {questions.map((question) => (
             <div key={question._id} className="question-container">
               <p className="question-text">{he.decode(question.question)}</p>
               {question.type === 'multiple' ? (
                 <ul className="answer-options">
                   {question.options.map((option) => (
-                    <li key={option} className={userAnswers[question.id] === option ? 'selected' : ''}>
+                    <li key={option}>
                       <button
-                        onClick={() => handleAnswerSelect(question.id, option)}
-                        disabled={userAnswers[question.id] !== undefined}
+                        className={userAnswers[question._id] === option ? 'selected' : ''}
+                        onClick={() => handleAnswerSelect(question._id, option)}
+                        disabled={userAnswers[question._id] !== undefined}
                       >
                         {option}
                       </button>
@@ -79,9 +129,9 @@ const Quiz = () => {
                   {question.options.map((option) => (
                     <button
                       key={option}
-                      onClick={() => handleAnswerSelect(question.id, option)}
-                      disabled={userAnswers[question.id] !== undefined}
-                      className={userAnswers[question.id] === option ? 'selected' : ''}
+                      onClick={() => handleAnswerSelect(question._id, option)}
+                      disabled={userAnswers[question._id] !== undefined}
+                      className={userAnswers[question._id] === option ? 'selected' : ''}
                     >
                       {option}
                     </button>
@@ -90,11 +140,6 @@ const Quiz = () => {
               )}
             </div>
           ))}
-          <div className="score-container">
-            {Object.keys(userAnswers).length === questions.length && (
-              <p>Your score: {calculateScore()} out of {questions.length}</p>
-            )}
-          </div>
         </>
       )}
     </div>
