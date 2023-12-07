@@ -47,6 +47,13 @@ const NavBar = () => {
 								Register
 							</Link>
 						</li>
+						{localStorage.getItem("role") === "ADMIN" ? (
+							<li className="nav-item">
+								<Link to="admin" className="nav-link">
+									Admin
+								</Link>
+							</li>
+						) : null}
 					</ul>
 				</div>
 

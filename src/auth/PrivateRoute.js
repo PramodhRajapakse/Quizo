@@ -9,9 +9,10 @@ const PrivateRoute = () => {
 };
 
 export const AdminRoute = () => {
-  const { token } = useAuth();
+  const role = localStorage.getItem('role');
 
-  return token ? <Outlet /> : <Navigate to="/" replace />;
+  return role === 'ADMIN' ? <Outlet /> : <Navigate to="/" replace />
+
 };
 
 export default PrivateRoute;
