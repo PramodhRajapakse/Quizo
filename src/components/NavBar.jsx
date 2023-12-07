@@ -1,7 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/quizo_logo.jpeg";
+import { useAuth } from "../auth/AuthProvider";
+import { MDBBtn } from "mdb-react-ui-kit";
 
 const NavBar = () => {
+	const { token, logout } = useAuth();
+	const navigate = useNavigate();
+
+	const handleLogout = () => {
+		logout();
+		navigate("/");
+	};
+
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light">
 			<div className="container-fluid">
@@ -41,6 +51,15 @@ const NavBar = () => {
 				</div>
 
 				<div className="d-flex align-items-center">
+					{token ? (
+						<MDBBtn
+							onClick={handleLogout}
+							className="nav-link p-2"
+							color="link"
+						>
+							Logout
+						</MDBBtn>
+					) : null}
 					<div className="dropdown">
 						<a
 							className="dropdown-toggle d-flex align-items-center hidden-arrow"

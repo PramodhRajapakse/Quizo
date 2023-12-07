@@ -10,13 +10,17 @@ import {
   MDBInput
 }
   from 'mdb-react-ui-kit';
-import "../assets/styles/Login.css";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useAuth } from '../auth/AuthProvider';
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
 import { Error } from '../components/Error';
 import logo from "../assets/images/quizo_logo.jpeg";
 
 const Login = () => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const validate = values => {
     const errors = {};
 
@@ -29,6 +33,21 @@ const Login = () => {
     return errors;
   };
 
+  const loginUser = async (values) => {
+    try {
+      const userObj = {
+        "email": values.email,
+        "password": values.password
+      }
+      const response = await axios.post(`http://localhost:8080/users/login`, userObj);
+      login(response.data.token);
+      navigate("categories")
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -36,7 +55,7 @@ const Login = () => {
     },
     validate: validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      loginUser(values);
     },
   });
 
@@ -81,7 +100,7 @@ const Login = () => {
                   <Error show={formik.errors.password ? true : false} message={formik.errors.password} />
                 </MDBRow>
 
-                <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Login</MDBBtn>
+                <MDBBtn type='submit' className="mb-4 px-5" color='dark' size='lg'>Login</MDBBtn>
               </form>
 
               <p className="mb-5 pb-lg-2 text-muted">Don't have an account? <Link to="/signup" className='text-black'>Register here</Link></p>

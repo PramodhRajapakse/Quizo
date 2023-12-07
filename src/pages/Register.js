@@ -11,7 +11,6 @@ import {
 }
   from 'mdb-react-ui-kit';
 import axios from 'axios';
-import "../assets/styles/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
 import { Error } from '../components/Error';
@@ -151,7 +150,7 @@ const Register = () => {
                     value={formik.values.confirmPassword} />
                   <Error show={formik.errors.confirmPassword ? true : false} message={formik.errors.confirmPassword} />
                 </MDBRow>
-                <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Register</MDBBtn>
+                <MDBBtn type='submit' className="mb-4 px-5" color='dark' size='lg'>Register</MDBBtn>
                 <p className="mb-5 pb-lg-2 text-muted" >Have an account already? <Link to="/" className='text-black'>Login here</Link></p>
               </form>
             </MDBCardBody>

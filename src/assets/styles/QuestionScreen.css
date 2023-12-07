@@ -37,7 +37,7 @@ button:hover {
 }
 
 button.selected {
-  background-color: rgb(3, 136, 237);
+  background-color: rgb(48, 55, 60);
   color: #fff;
 }
 

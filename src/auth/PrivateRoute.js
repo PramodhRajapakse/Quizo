@@ -5,7 +5,13 @@ import { useAuth } from './AuthProvider';
 const PrivateRoute = () => {
   const { token } = useAuth();
 
-  return token ? <Outlet /> : <Navigate to="/" />;
+  return token ? <Outlet /> : <Navigate to="/" replace />;
+};
+
+export const AdminRoute = () => {
+  const { token } = useAuth();
+
+  return token ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default PrivateRoute;
