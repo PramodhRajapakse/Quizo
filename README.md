@@ -10,18 +10,16 @@ Welcome to **Quizzo**, a fun and educational quiz app. This interactive quiz app
 
 - **Real-time Feedback:** Receive instant feedback on your quiz performance. Know your score, view correct answers, and track your progress, empowering you to learn from your mistakes.
 
-- **Compete with Friends:** Challenge your friends to quizzes and compete in real-time. Compare your scores and see who ranks on top of the leaderboard.
-
 ## How to Use
 
 1. **Clone the Repository:**
    ```
-   git clone https://github.com/your-username/QuizzyMind.git
+   git clone https://github.com/your-username/Quizzo.git
    ```
 
 2. **Navigate to the Project Directory:**
    ```
-   cd QuizzyMind
+   cd Quizzo
    ```
 
 3. **Open index.html in Your Browser:**
