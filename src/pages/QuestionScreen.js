@@ -40,10 +40,6 @@ const Quiz = () => {
     fetchData();
   }, [category]);
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
   const closeModal = () => {
     setModalOpen(false);
   };

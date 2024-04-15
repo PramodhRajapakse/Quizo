@@ -1,5 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/images/quizo_logo.jpeg";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import { MDBBtn } from "mdb-react-ui-kit";
 
@@ -26,36 +25,6 @@ const NavBar = () => {
 				>
 					<i className="fas fa-bars"></i>
 				</button>
-
-				<div className="collapse navbar-collapse" id="navbarSupportedContent">
-					<a className="navbar-brand mt-2 mt-lg-0" href="/">
-						<img src={logo} height="30" alt="MDB Logo" loading="lazy" />
-					</a>
-					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-						<li className="nav-item">
-							<Link className="nav-link" to="categories">
-								Categories
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link to="/" className="nav-link">
-								Login
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link to="signup" className="nav-link">
-								Register
-							</Link>
-						</li>
-						{localStorage.getItem("role") === "ADMIN" ? (
-							<li className="nav-item">
-								<Link to="admin" className="nav-link">
-									Admin
-								</Link>
-							</li>
-						) : null}
-					</ul>
-				</div>
 
 				<div className="d-flex align-items-center">
 					{token ? (
