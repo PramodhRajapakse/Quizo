@@ -1,27 +1,37 @@
+import React, { useState } from 'react';
+import Answer from './Answer';
+
 const Question = ({ questions }) => {
+  const [selectedAnswers, setSelectedAnswers] = useState({}); // Track selected answers for all questions
+
+  const handleAnswerSelection = (questionId, answerKey) => {
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [questionId]: answerKey,
+    }));
+  };
+
   return (
     <div>
       {questions.map((questionObj) => (
-        <div key={questionObj.id} style={{ marginBottom: '20px' }}>
+        <div key={questionObj.id} style={{ marginBottom: '30px' }}>
           {/* Display the question */}
           <h3>{questionObj.question}</h3>
           <p>{questionObj.description}</p>
 
-          {/* Display the answers */}
-          <ul>
-            {Object.entries(questionObj.answers)
-              .filter(([key, value]) => value) // Filter out null answers
-              .map(([key, value]) => (
-                <li key={key}>
-                  {value}
-                </li>
-              ))}
-          </ul>
+          {/* Render the Answer component */}
+          <Answer
+            answers={questionObj.answers}
+            onSelectAnswer={(answerKey) =>
+              handleAnswerSelection(questionObj.id, answerKey)
+            }
+          />
 
-          {/* Show the correct answer explanation */}
-          {questionObj.explanation && (
+          {/* Show the selected answer */}
+          {selectedAnswers[questionObj.id] && (
             <p>
-              <strong>Explanation:</strong> {questionObj.explanation}
+              <strong>Selected Answer:</strong>{' '}
+              {questionObj.answers[selectedAnswers[questionObj.id]]}
             </p>
           )}
         </div>
