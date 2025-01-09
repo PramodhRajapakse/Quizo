@@ -5,7 +5,7 @@ import "../assets/styles/CategoryScreen.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const CategoryScreen = () => {
   const [categories, setCategories] = useState([]);
@@ -18,7 +18,7 @@ const CategoryScreen = () => {
       try {
         const response = await axios.get('https://quizapi.io/api/v1/categories', {
           headers: {
-            'X-Api-Key': 'kYoY9ylh9zbRfJ9ouuaMwtRdQ5NhqySU5GttdiMp', // Set the API key here
+            'X-Api-Key': apiKey, // Set the API key here
           }
         });
         setCategories(response.data);
@@ -47,7 +47,7 @@ const CategoryScreen = () => {
       <div className="categoryContainer">
         {categories.map((category) => {
           return (
-            <CategoryButton key={category._id} label={category.name} onClick={() => { chooseCategory(category) }} />
+            <CategoryButton key={category.id} label={category.name} onClick={() => { chooseCategory(category) }} />
           )
         })}
       </div>

@@ -11,7 +11,7 @@ const DetailScreen = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCategoryName(category.categoryName);
+    setCategoryName(category.name);
   }, [category]);
 
   const handleStart = () => {
