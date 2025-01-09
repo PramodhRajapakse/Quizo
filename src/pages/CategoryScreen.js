@@ -5,24 +5,30 @@ import "../assets/styles/CategoryScreen.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
+const apiKey = process.env.API_KEY;
 
 const CategoryScreen = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
   let navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(`http://localhost:8080/categories`);
-  //       setCategories(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
 
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://quizapi.io/api/v1/categories', {
+          headers: {
+            'X-Api-Key': 'kYoY9ylh9zbRfJ9ouuaMwtRdQ5NhqySU5GttdiMp', // Set the API key here
+          }
+        });
+        setCategories(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const chooseCategory = (val) => {
     setSelectedCat(val)
@@ -41,7 +47,7 @@ const CategoryScreen = () => {
       <div className="categoryContainer">
         {categories.map((category) => {
           return (
-            <CategoryButton key={category._id} label={category.categoryName} onClick={() => { chooseCategory(category) }} />
+            <CategoryButton key={category._id} label={category.name} onClick={() => { chooseCategory(category) }} />
           )
         })}
       </div>
