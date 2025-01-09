@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/QuestionScreen.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import he from 'he';
 import Modal from 'react-modal';
 import Question from '../components/Question';
 
@@ -10,15 +9,10 @@ Modal.setAppElement('#root'); // Set the root element for screen readers
 
 
 const Quiz = () => {
-  const [userAnswers, setUserAnswers] = useState({});
   const [questions, setQuestions] = useState([]);
   const [noQuestions, setNoQuestions] = useState(false);
-  let [score, setScore] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
-  let [ansCount, setAnsCount] = useState(0);
   const location = useLocation();
   const category = location.state;
-  const navigate = useNavigate();
   const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
