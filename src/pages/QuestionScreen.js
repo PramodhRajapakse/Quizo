@@ -19,26 +19,26 @@ const Quiz = () => {
   const category = location.state;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/questions/category/${category.category._id}`);
-        if (response.data.length === 0) {
-          setNoQuestions(true);
-        } else {
-          const processedQuestionsArray = response.data.map((question) => ({
-            ...question,
-            options: [question.correctAnswer, ...question.incorrectAnswers]
-          }));
-          setQuestions(processedQuestionsArray);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(`http://localhost:8080/questions/category/${category.category._id}`);
+  //       if (response.data.length === 0) {
+  //         setNoQuestions(true);
+  //       } else {
+  //         const processedQuestionsArray = response.data.map((question) => ({
+  //           ...question,
+  //           options: [question.correctAnswer, ...question.incorrectAnswers]
+  //         }));
+  //         setQuestions(processedQuestionsArray);
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [category]);
+  //   fetchData();
+  // }, [category]);
 
   const closeModal = () => {
     setModalOpen(false);

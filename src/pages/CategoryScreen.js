@@ -11,18 +11,18 @@ const CategoryScreen = () => {
   const [selectedCat, setSelectedCat] = useState(null);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/categories`);
-        setCategories(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(`http://localhost:8080/categories`);
+  //       setCategories(response.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const chooseCategory = (val) => {
     setSelectedCat(val)
