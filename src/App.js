@@ -12,17 +12,15 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/">
-            <Route>
-              <Route index exact path="categories" element={<CategoryScreen />} />
-            </Route>
-            <Route>
-              <Route exact path="details" element={<DetailScreen />} />
-            </Route>
-            <Route>
-              <Route exact path="questions" element={<QuestionScreen />} />
-            </Route>
-          </Route >
+          <Route>
+            <Route exact path="/" element={<CategoryScreen />} />
+          </Route>
+          <Route>
+            <Route exact path="details" element={<DetailScreen />} />
+          </Route>
+          <Route>
+            <Route exact path="questions" element={<QuestionScreen />} />
+          </Route>
         </Routes >
         <Footer />
       </Router >
