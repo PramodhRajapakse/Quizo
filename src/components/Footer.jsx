@@ -7,10 +7,7 @@ const Footer = () => {
 				className="text-light text-center p-3"
 				style={{ backgroundColor: colors.primaryColorLight }}
 			>
-				© 2020 Copyright:
-				<a className="text-light" href="/">
-					Quizo
-				</a>
+				© 2025 Copyright: Quizo
 			</div>
 		</footer>
 	);

@@ -5,8 +5,9 @@ import "../assets/styles/CategoryScreen.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
-const apiKey = process.env.REACT_APP_API_KEY;
+import data from "../assets/data/Categories.json";
 
+const apiKey = process.env.REACT_APP_API_KEY;
 const CategoryScreen = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
@@ -14,20 +15,21 @@ const CategoryScreen = () => {
 
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://quizapi.io/api/v1/categories', {
-          headers: {
-            'X-Api-Key': apiKey, // Set the API key here
-          }
-        });
-        setCategories(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await axios.get('https://quizapi.io/api/v1/categories', {
+    //       headers: {
+    //         'X-Api-Key': apiKey, // Set the API key here
+    //       }
+    //     });
+    //     setCategories(response.data);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
 
-    fetchData();
+    // fetchData();
+    setCategories(data);
   }, []);
 
   const chooseCategory = (val) => {
@@ -39,7 +41,7 @@ const CategoryScreen = () => {
   }
 
   return (
-    <div style={{ height: "85vh" }}>
+    <div>
       <div className="container-fluid text-center">
         <p className="heading">Welcome to Quizo</p>
         <p className="detailText">Select category to start quiz</p>
@@ -47,7 +49,7 @@ const CategoryScreen = () => {
       <div className="categoryContainer">
         {categories.map((category) => {
           return (
-            <CategoryButton key={category.id} label={category.name} onClick={() => { chooseCategory(category) }} />
+            <CategoryButton key={category.id} imageUrl={category.imageUrl} label={category.name} onClick={() => { chooseCategory(category) }} />
           )
         })}
       </div>

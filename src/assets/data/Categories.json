@@ -1,74 +1,108 @@
 [
   {
       "id": 1,
-      "name": "Linux"
+      "name": "Linux",
+      "imageUrl": "/assets/linux.png"
   },
   {
       "id": 2,
-      "name": "bash"
+      "name": "bash",
+      "imageUrl": "/assets/bash.png"
+
   },
   {
       "id": 3,
-      "name": "uncategorized"
+      "name": "uncategorized",
+      "imageUrl": "/assets/category.png"
+
   },
   {
       "id": 4,
-      "name": "Docker"
+      "name": "Docker",
+      "imageUrl": "/assets/docker.png"
+
   },
   {
       "id": 5,
-      "name": "SQL"
+      "name": "SQL",
+      "imageUrl": "/assets/sql-server.png"
+
   },
   {
       "id": 6,
-      "name": "CMS"
+      "name": "CMS",
+      "imageUrl": "/assets/cms.png"
+
   },
   {
       "id": 7,
-      "name": "Code"
+      "name": "Code",
+      "imageUrl": "/assets/programming.png"
+
   },
   {
       "id": 8,
-      "name": "DevOps"
+      "name": "DevOps",
+      "imageUrl": "/assets/devops.png"
+
   },
   {
       "id": 9,
-      "name": "React"
+      "name": "React",
+      "imageUrl": "/assets/react.png"
+
   },
   {
       "id": 10,
-      "name": "Laravel"
+      "name": "Laravel",
+      "imageUrl": "/assets/php.png"
+
   },
   {
       "id": 11,
-      "name": "Postgres"
+      "name": "Postgres",
+      "imageUrl": "/assets/postgre.png"
+
   },
   {
       "id": 12,
-      "name": "Django"
+      "name": "Django",
+      "imageUrl": "/assets/django.png"
+
   },
   {
       "id": 13,
-      "name": "cPanel"
+      "name": "cPanel",
+      "imageUrl": "/assets/linux.png"
+
   },
   {
       "id": 14,
-      "name": "NodeJs"
+      "name": "NodeJs",
+      "imageUrl": "/assets/nodejs.png"
+
   },
   {
       "id": 15,
-      "name": "WordPress"
+      "name": "WordPress",
+      "imageUrl": "/assets/wordpress.png"
   },
   {
       "id": 16,
-      "name": "Next.js"
+      "name": "Next.js",
+      "imageUrl": "/assets/linux.png"
+
   },
   {
       "id": 17,
-      "name": "VueJS"
+      "name": "VueJS",
+      "imageUrl": "/assets/linux.png"
+
   },
   {
       "id": 18,
-      "name": "Apache Kafka"
+      "name": "Apache Kafka",
+      "imageUrl": "/assets/linux.png"
+
   }
 ]
