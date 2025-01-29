@@ -14,8 +14,8 @@
 }
 
 .category-card.selected {
-  border: 3px solid #007bff; /* Change border color when selected */
-  background-color: #d0e4ff;
+  border: 2px solid #787b7d; /* Change border color when selected */
+  background-color: #cceac9;
 }
 
 .category-card-title {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardImage } from "mdb-react-ui-kit";
 import "../assets/styles/CategoryButton.css";
 

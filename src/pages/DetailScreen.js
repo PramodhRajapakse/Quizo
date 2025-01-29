@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { MDBBtn } from "mdb-react-ui-kit";
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn, MDBCardImage} from "mdb-react-ui-kit";
 import "../assets/styles/DetailScreen.css";
-
+import image from "../assets/images/quizo-bg.png"
 
 const DetailScreen = () => {
   const { state } = useLocation();
@@ -19,19 +19,24 @@ const DetailScreen = () => {
   }
 
   return (
-    <div className="body d-flex justify-content-center">
-      <div className="detailTextContainer">
-        <p className="appTitle">Quizo</p>
-        <div className="detailText">
-          Selected Quiz Topic - <p>{categoryName}</p>
-        </div>
-        <div>
-          Total questions to attempt:{' '}
-          <p>10</p>
-        </div>
-        <MDBBtn className="bg-dark" onClick={() => handleStart()}>Start</MDBBtn>
-      </div>
-    </div>
+     <div
+      className="quiz-start-container d-flex justify-content-center align-items-center">
+     <MDBCard className="text-center quiz-start-card">
+       <MDBCardBody>
+         <MDBCardTitle className="appTitle">Quizo</MDBCardTitle>
+         <MDBCardText className="detailText">
+           <strong>Selected Quiz Topic:</strong> {categoryName}
+         </MDBCardText>
+         <MDBCardImage src={category.imageUrl} alt={`${categoryName} image`} className="category-card-image p-2" />
+         <MDBCardText>
+           <strong>Total questions to attempt:</strong> 10
+         </MDBCardText>
+         <MDBBtn className="bg-dark border-0" onClick={handleStart}>
+           Start
+         </MDBBtn>
+       </MDBCardBody>
+     </MDBCard>
+   </div>
   )
 }
 
