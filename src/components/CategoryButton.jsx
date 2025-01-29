@@ -2,17 +2,15 @@ import React, { useState, useEffect } from "react";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardImage } from "mdb-react-ui-kit";
 import "../assets/styles/CategoryButton.css";
 
-export const CategoryButton = ({ label, imageUrl, onSelect = (f) => f }) => {
-  const [isSelected, setIsSelected] = useState(false);
+export const CategoryButton = ({ label, imageUrl, onSelect = (f) => f, isSelected }) => {
 
   const handleCardClick = () => {
-    setIsSelected((prev) => !prev); // Toggle selected state
     onSelect(label); // Notify parent component of the selection
   };
 
   return (
     <MDBCard
-      className="category-card text-center shadow-sm m-3"
+      className={`category-card text-center shadow-sm m-3 ${isSelected ? "selected" : ""}`}
       onClick={handleCardClick}
     >
       <MDBCardBody>

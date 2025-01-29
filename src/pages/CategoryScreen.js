@@ -33,7 +33,8 @@ const CategoryScreen = () => {
   }, []);
 
   const chooseCategory = (val) => {
-    setSelectedCat(val)
+    setSelectedCat(val);
+    console.log(val);
   }
 
   const handleContinue = () => {
@@ -49,7 +50,12 @@ const CategoryScreen = () => {
       <div className="categoryContainer">
         {categories.map((category) => {
           return (
-            <CategoryButton key={category.id} imageUrl={category.imageUrl} label={category.name} onClick={() => { chooseCategory(category) }} />
+            <CategoryButton
+            key={category.id}
+            imageUrl={category.imageUrl}
+            label={category.name}
+            onSelect={() => { chooseCategory(category) }}
+            isSelected={selectedCat?.id === category.id} />
           )
         })}
       </div>
