@@ -24,3 +24,7 @@
     justify-content: space-evenly;
     padding: 10px;
 }
+
+.continueBtn {
+    background-color: var(--navy);
+}

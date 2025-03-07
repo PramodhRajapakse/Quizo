@@ -3,6 +3,8 @@ body {
 	font-family: Roboto, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #F1F6F9, #9BA4B5, #394867, #212A3E);
+  background-size: cover;
 }
 
 code {

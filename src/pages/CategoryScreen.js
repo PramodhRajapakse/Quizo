@@ -11,6 +11,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const CategoryScreen = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(true);
   let navigate = useNavigate();
 
 
@@ -34,11 +35,12 @@ const CategoryScreen = () => {
 
   const chooseCategory = (val) => {
     setSelectedCat(val);
-    console.log(val);
+    setIsDisabled(false);
   }
 
   const handleContinue = () => {
-    navigate("/details", { state: { category: selectedCat } });
+    if(selectedCat)
+      navigate("/details", { state: { category: selectedCat } });
   }
 
   return (
@@ -58,9 +60,10 @@ const CategoryScreen = () => {
             isSelected={selectedCat?.id === category.id} />
           )
         })}
-      </div>
-      <div className="d-flex justify-content-center w-100">
-        <MDBBtn onClick={handleContinue} className="w-25 btn btn-dark">Continue</MDBBtn>
+
+        <div className="d-flex justify-content-center w-100 mb-3">
+        <MDBBtn onClick={handleContinue} disabled={isDisabled} style={{backgroundColor: 'var(--navy)'}} className="border-0 w-25 btn">Continue</MDBBtn>
+        </div>
       </div>
     </div>
   )

@@ -1,43 +1,34 @@
-import React, { useState } from 'react';
-import Answer from './Answer';
+import React from "react";
+import { MDBCard, MDBCardBody, MDBBtn } from "mdb-react-ui-kit";
 
-const Question = ({ questions }) => {
-  const [selectedAnswers, setSelectedAnswers] = useState({}); // Track selected answers for all questions
-
-  const handleAnswerSelection = (questionId, answerKey) => {
-    setSelectedAnswers((prev) => ({
-      ...prev,
-      [questionId]: answerKey,
-    }));
-  };
+const Question = ({ question, selectedAnswer, onSelectAnswer }) => {
+  if (!question) return null; // Prevent rendering if no question is provided
 
   return (
     <div>
-      {questions.map((questionObj) => (
-        <div key={questionObj.id} style={{ marginBottom: '30px' }}>
-          {/* Display the question */}
-          <h3>{questionObj.question}</h3>
-          <p>{questionObj.description}</p>
+      <MDBCardBody className="text-center">
+        <h4 className="mb-3">{question.question}</h4>
+        {question.description && <p className="text-muted">{question.description}</p>}
 
-          {/* Render the Answer component */}
-          <Answer
-            answers={questionObj.answers}
-            onSelectAnswer={(answerKey) =>
-              handleAnswerSelection(questionObj.id, answerKey)
-            }
-          />
-
-          {/* Show the selected answer */}
-          {selectedAnswers[questionObj.id] && (
-            <p>
-              <strong>Selected Answer:</strong>{' '}
-              {questionObj.answers[selectedAnswers[questionObj.id]]}
-            </p>
+        {/* Answer options */}
+        <div className="d-flex flex-column gap-2">
+          {Object.entries(question.answers).map(([key, value]) =>
+            value ? ( // Only render non-null answers
+              <MDBBtn
+                key={key}
+                color={selectedAnswer === key ? "success" : "light"}
+                className="w-100"
+                onClick={() => onSelectAnswer(key, question.correct_answers[`${key}_correct`] === "true")}
+              >
+                {value}
+              </MDBBtn>
+            ) : null
           )}
         </div>
-      ))}
+      </MDBCardBody>
     </div>
   );
 };
 
 export default Question;
+

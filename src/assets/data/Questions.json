@@ -1,0 +1,645 @@
+[
+  {
+      "id": 711,
+      "question": "Are arrays supported in shell scripts?",
+      "description": null,
+      "answers": {
+          "answer_a": "True",
+          "answer_b": "False",
+          "answer_c": "Yes but only under certain conditions",
+          "answer_d": null,
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "BASH"
+          },
+          {
+              "name": "Linux"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 3337,
+      "question": "How do you display the IP address of your system in Ubuntu?",
+      "description": "Displaying the IP address helps in identifying network configurations and troubleshooting connectivity issues.",
+      "answers": {
+          "answer_a": "Use 'ip addr show'",
+          "answer_b": "Run 'getip'",
+          "answer_c": "Type 'showip'",
+          "answer_d": "Use 'netinfo'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To display the IP address of your system, use 'ip addr show'.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 3246,
+      "question": "How do you recover data from a corrupted ext4 filesystem in Ubuntu?",
+      "description": "Recovering data from a corrupted filesystem is critical for preventing data loss.",
+      "answers": {
+          "answer_a": "Use 'sudo e2fsck -b superblock /dev/sdX'",
+          "answer_b": "Run 'fsrepair sdX'",
+          "answer_c": "Type 'recoverext4 /dev/sdX'",
+          "answer_d": "Use 'ext4repair -corrupt'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To recover data from a corrupted ext4 filesystem, use 'sudo e2fsck -b superblock /dev/sdX'.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Hard"
+  },
+  {
+      "id": 681,
+      "question": "Who designed the Linux OS?",
+      "description": null,
+      "answers": {
+          "answer_a": "Linus Torvalds",
+          "answer_b": "Steve Jobs",
+          "answer_c": "Steve Wozniak",
+          "answer_d": "Steve Linus",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "Linux"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 3365,
+      "question": "Which command allows you to delete a user in Ubuntu?",
+      "description": "Deleting a user helps in managing system access by removing unnecessary accounts.",
+      "answers": {
+          "answer_a": "Use 'sudo deluser username'",
+          "answer_b": "Run 'removeuser username'",
+          "answer_c": "Type 'deleteuser username'",
+          "answer_d": "Use 'userdel username'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To delete a user in Ubuntu, use 'sudo deluser username'.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 39,
+      "question": "The most common way to display the network settings of network interfaces on a Linux system is by using which command?",
+      "description": null,
+      "answers": {
+          "answer_a": "ipconfig",
+          "answer_b": "ipconfig/all",
+          "answer_c": "show ipv4",
+          "answer_d": "ifconfig",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_d",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "Linux"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 44,
+      "question": "Which of the following answers refers to a Linux command-line command used for configuring network interface parameters specific to the wireless communication?",
+      "description": null,
+      "answers": {
+          "answer_a": "net config",
+          "answer_b": "ifconfig",
+          "answer_c": "networksetup",
+          "answer_d": "iwconfig",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "true",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_d",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "Linux"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 3153,
+      "question": "How do you list all installed packages in Ubuntu?",
+      "description": "Listing installed packages helps in managing the software currently available on the system.",
+      "answers": {
+          "answer_a": "Use 'dpkg --get-selections'",
+          "answer_b": "Run 'list-packages'",
+          "answer_c": "Type 'showinstalled'",
+          "answer_d": "Use 'apt-list'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To list all installed packages in Ubuntu, use the 'dpkg --get-selections' command.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 3370,
+      "question": "Which command is used to view the history of commands executed in the terminal?",
+      "description": "Viewing command history is helpful for recalling previous commands and avoiding repetitive typing.",
+      "answers": {
+          "answer_a": "Use 'history'",
+          "answer_b": "Run 'cmdhist'",
+          "answer_c": "Type 'viewcmds'",
+          "answer_d": "Use 'pastcmds'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To view the history of commands executed, use the 'history' command.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 746,
+      "question": "How to dump current cluster state to stdout in Kubernetes?",
+      "description": null,
+      "answers": {
+          "answer_a": "kubectl cluster-info show",
+          "answer_b": "kubectl cluster-status",
+          "answer_c": "kubectl cluster info",
+          "answer_d": "kubectl cluster-info dump",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "true",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "Kubernetes"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 656,
+      "question": "Which filter can be applied on lines of text for arranging in ascending or descending order?",
+      "description": null,
+      "answers": {
+          "answer_a": "sort",
+          "answer_b": "arrange",
+          "answer_c": "collate",
+          "answer_d": "None of the above",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "BASH"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 729,
+      "question": "How to list pods sorted by Restart Count in Kubernetes?",
+      "description": null,
+      "answers": {
+          "answer_a": "kubectl get pods --sort-by='.status.restartCount'",
+          "answer_b": "kubectl get pods --sort='.status.containerStatuses[0].restartCount'",
+          "answer_c": "kubectl get pods by restartCount",
+          "answer_d": "kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "true",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "Kubernetes"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 3233,
+      "question": "How do you configure persistent static routes in Ubuntu?",
+      "description": "Configuring persistent static routes ensures network traffic is routed correctly even after a reboot.",
+      "answers": {
+          "answer_a": "Edit '/etc/netplan/*.yaml' and add static route information",
+          "answer_b": "Run 'route-persist config'",
+          "answer_c": "Type 'staticroute add'",
+          "answer_d": "Use 'permaroute set'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To configure persistent static routes, edit the '/etc/netplan/*.yaml' file and add the appropriate routing information.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Hard"
+  },
+  {
+      "id": 3350,
+      "question": "Which command is used to download a file from the internet in Ubuntu?",
+      "description": "Downloading files from the internet is useful for retrieving resources or software packages.",
+      "answers": {
+          "answer_a": "Use 'wget URL'",
+          "answer_b": "Run 'fetch URL'",
+          "answer_c": "Type 'getfile URL'",
+          "answer_d": "Use 'download URL'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To download a file from the internet, use 'wget URL'.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 3241,
+      "question": "How do you apply kernel updates without rebooting in Ubuntu?",
+      "description": "Applying kernel updates without rebooting ensures minimal downtime for critical systems.",
+      "answers": {
+          "answer_a": "Use 'livepatch enable'",
+          "answer_b": "Run 'kernupdate -noreboot'",
+          "answer_c": "Type 'kernelpatch'",
+          "answer_d": "Use 'rebootless-update'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To apply kernel updates without rebooting, use the 'livepatch' service provided by Ubuntu.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Hard"
+  },
+  {
+      "id": 3343,
+      "question": "How do you create a symbolic link to a file in Ubuntu?",
+      "description": "Creating a symbolic link allows you to create a shortcut or reference to another file.",
+      "answers": {
+          "answer_a": "Use 'ln -s target link_name'",
+          "answer_b": "Run 'linkfile target link_name'",
+          "answer_c": "Type 'createsym target link_name'",
+          "answer_d": "Use 'symlink target link_name'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To create a symbolic link, use 'ln -s target link_name'.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 654,
+      "question": "Which option can be used with ‘rm’ command to prompt for file removal?",
+      "description": null,
+      "answers": {
+          "answer_a": "-ask",
+          "answer_b": "-i",
+          "answer_c": "-c",
+          "answer_d": "-n",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "false",
+          "answer_b_correct": "true",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": null,
+      "tip": null,
+      "tags": [
+          {
+              "name": "BASH"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 3107,
+      "question": "How do you install a new package in Ubuntu?",
+      "description": "Installing packages is essential for adding new software and functionality to your system.",
+      "answers": {
+          "answer_a": "Use 'sudo apt install' followed by the package name",
+          "answer_b": "Run 'installpkg'",
+          "answer_c": "Use 'apt-get new'",
+          "answer_d": "Type 'pkgadd'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To install a new package in Ubuntu, use 'sudo apt install' followed by the name of the package you want to install.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Easy"
+  },
+  {
+      "id": 3163,
+      "question": "How do you list open network ports in Ubuntu?",
+      "description": "Listing open ports helps in identifying which services are listening for connections.",
+      "answers": {
+          "answer_a": "Use 'sudo netstat -tuln'",
+          "answer_b": "Run 'portlist'",
+          "answer_c": "Type 'showports'",
+          "answer_d": "Use 'networkports'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To list open network ports, use the 'sudo netstat -tuln' command.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Medium"
+  },
+  {
+      "id": 3235,
+      "question": "How do you set kernel parameters at runtime in Ubuntu?",
+      "description": "Setting kernel parameters at runtime helps in tuning system performance without rebooting.",
+      "answers": {
+          "answer_a": "Use 'sudo sysctl -w parameter=value'",
+          "answer_b": "Run 'kernelconfig parameter=value'",
+          "answer_c": "Type 'setkernel param'",
+          "answer_d": "Use 'kernelmod -set'",
+          "answer_e": null,
+          "answer_f": null
+      },
+      "multiple_correct_answers": "false",
+      "correct_answers": {
+          "answer_a_correct": "true",
+          "answer_b_correct": "false",
+          "answer_c_correct": "false",
+          "answer_d_correct": "false",
+          "answer_e_correct": "false",
+          "answer_f_correct": "false"
+      },
+      "correct_answer": null,
+      "explanation": "To set kernel parameters at runtime, use 'sudo sysctl -w parameter=value'.",
+      "tip": null,
+      "tags": [
+          {
+              "name": "Ubuntu"
+          }
+      ],
+      "category": "Linux",
+      "difficulty": "Hard"
+  }
+]
