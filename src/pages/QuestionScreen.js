@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/QuestionScreen.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Modal from 'react-modal';
 import Question from '../components/Question';
@@ -18,6 +18,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
 
   const location = useLocation();
+  const navigate = useNavigate();
   const category = location.state;
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -61,6 +62,7 @@ const Quiz = () => {
       setSelectedAnswer(null); // Reset selected answer for new question
     } else {
       alert(`Quiz completed! Your score: ${score}/${questions.length}`);
+      navigate('/');
     }
   };
 
