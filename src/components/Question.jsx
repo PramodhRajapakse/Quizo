@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCard, MDBCardBody, MDBBtn } from "mdb-react-ui-kit";
+import { MDBCardBody, MDBBtn } from "mdb-react-ui-kit";
 
 const Question = ({ question, selectedAnswer, onSelectAnswer }) => {
   if (!question) return null; // Prevent rendering if no question is provided
@@ -16,8 +16,8 @@ const Question = ({ question, selectedAnswer, onSelectAnswer }) => {
             value ? ( // Only render non-null answers
               <MDBBtn
                 key={key}
-                color={selectedAnswer === key ? "success" : "light"}
-                className="w-100"
+                style={{ backgroundColor: selectedAnswer === key ? "#a7c957" : "#F1F6F9" }}
+                className="w-100 border-0 text-black"
                 onClick={() => onSelectAnswer(key, question.correct_answers[`${key}_correct`] === "true")}
               >
                 {value}

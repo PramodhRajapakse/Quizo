@@ -88,8 +88,9 @@ const Quiz = () => {
             <div className="mt-3">
               <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
               <MDBBtn
-                color="primary"
+                style={{backgroundColor: 'var(--dark)'}}
                 onClick={handleNextQuestion}
+                className='btn w-50 border-0'
                 disabled={!selectedAnswer} // Prevent skipping without an answer
               >
                 {currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next'}
