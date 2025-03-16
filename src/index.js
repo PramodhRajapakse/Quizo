@@ -13,6 +13,9 @@ document.documentElement.style.setProperty("--light", theme.light);
 document.documentElement.style.setProperty("--dark", theme.dark);
 document.documentElement.style.setProperty("--navy", theme.navy);
 document.documentElement.style.setProperty("--gray", theme.gray);
+document.documentElement.style.setProperty("--secondary", theme.secondary);
+document.documentElement.style.setProperty("--success", theme.success);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

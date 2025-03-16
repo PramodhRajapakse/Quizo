@@ -44,7 +44,7 @@ const CategoryScreen = () => {
   }
 
   return (
-    <div>
+    <div className="categoryScreen">
       <div className="container-fluid text-center">
         <p className="heading">Welcome to Quizo</p>
         <p className="detailText">Select category to start quiz</p>

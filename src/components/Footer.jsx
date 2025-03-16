@@ -1,11 +1,9 @@
-import { colors } from "../assets/data/Colors";
-
 const Footer = () => {
 	return (
-		<footer className="bg-dark text-center text-lg-start fixed-bottom">
+		<footer className="text-center text-lg-start fixed-bottom">
 			<div
 				className="text-light text-center p-3"
-				style={{ backgroundColor: colors.primaryColorLight }}
+				style={{ backgroundColor: "var(--navy)" }}
 			>
 				© 2025 Copyright: Quizo
 			</div>

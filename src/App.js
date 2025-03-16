@@ -10,6 +10,7 @@ import QuestionScreen from './pages/QuestionScreen';
 function App() {
   return (
       <Router>
+        <NavBar />
         <Routes>
           <Route>
             <Route exact path="/" element={<CategoryScreen />} />

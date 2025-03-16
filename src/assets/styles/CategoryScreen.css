@@ -1,6 +1,12 @@
 .body {
-    height: 100vh;
     display: flex;
+}
+
+.categoryScreen {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .heading {
