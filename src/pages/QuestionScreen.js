@@ -4,11 +4,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Modal from 'react-modal';
 import Question from '../components/Question';
+import ResultModal from '../components/ResultModal'; // Import the new component
 import Questions from '../assets/data/Questions.json';
 import { MDBCard, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
 
 Modal.setAppElement('#root'); // Set the root element for screen readers
-
 
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
@@ -16,6 +16,7 @@ const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
+  const [showResultModal, setShowResultModal] = useState(false); // Add state for result modal
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -61,9 +62,22 @@ const Quiz = () => {
       setCurrentQuestionIndex(prevIndex => prevIndex + 1);
       setSelectedAnswer(null); // Reset selected answer for new question
     } else {
-      alert(`Quiz completed! Your score: ${score}/${questions.length}`);
-      navigate('/');
+      // Show the result modal instead of an alert
+      setShowResultModal(true);
     }
+  };
+
+  // Handle retry quiz
+  const handleRetryQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setSelectedAnswer(null);
+    setShowResultModal(false);
+  };
+
+  // Handle close modal
+  const handleCloseModal = () => {
+    setShowResultModal(false);
   };
 
   return (
@@ -73,33 +87,44 @@ const Quiz = () => {
           <h1>No questions for this category yet.</h1>
         </div>
       ) : (
-        <MDBCard className="p-4 text-center">
-          <MDBCardBody>
-            <h2>Quiz Time!</h2>
+        <>
+          <MDBCard className="p-4 text-center">
+            <MDBCardBody>
+              <h2>Quiz Time!</h2>
 
-            {/* Render current question */}
-            {questions.length > 0 && (
-              <Question
-                question={questions[currentQuestionIndex]}
-                selectedAnswer={selectedAnswer}
-                onSelectAnswer={handleAnswerSelection}
-              />
-            )}
+              {/* Render current question */}
+              {questions.length > 0 && (
+                <Question
+                  question={questions[currentQuestionIndex]}
+                  selectedAnswer={selectedAnswer}
+                  onSelectAnswer={handleAnswerSelection}
+                />
+              )}
 
-            {/* Navigation Controls */}
-            <div className="mt-3">
-              <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
-              <MDBBtn
-                style={{backgroundColor: 'var(--dark)'}}
-                onClick={handleNextQuestion}
-                className='btn w-50 border-0'
-                disabled={!selectedAnswer} // Prevent skipping without an answer
-              >
-                {currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next'}
-              </MDBBtn>
-            </div>
-          </MDBCardBody>
-        </MDBCard>
+              {/* Navigation Controls */}
+              <div className="mt-3">
+                <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
+                <MDBBtn
+                  style={{ backgroundColor: 'var(--dark)' }}
+                  onClick={handleNextQuestion}
+                  className='btn w-50 border-0'
+                  disabled={!selectedAnswer} // Prevent skipping without an answer
+                >
+                  {currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next'}
+                </MDBBtn>
+              </div>
+            </MDBCardBody>
+          </MDBCard>
+
+          {/* Result Modal */}
+          <ResultModal
+            isOpen={showResultModal}
+            score={score}
+            totalQuestions={questions.length}
+            onClose={handleCloseModal}
+            onRetry={handleRetryQuiz}
+          />
+        </>
       )}
     </div>
   );

@@ -3,22 +3,23 @@
   width: 200px !important;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  background-color: var(--secondary) !important;
+  background-color: var(--light) !important;
   border: 0px;
   cursor: pointer;
-  color: var(--light) !important;
+  color: var(--dark) !important;
 }
 
 .category-card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 8px 15px rgba(69, 29, 29, 0.1);
   background-color: var(--dark) !important;
+  color: var(--light) !important;
 }
 
 .category-card.selected {
   transform: translateY(-5px);
   background-color: var(--dark) !important;
-  color: var(--light);
+  color: var(--light) !important;
 }
 
 .category-card-title {
