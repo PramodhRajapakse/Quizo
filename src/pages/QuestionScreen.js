@@ -5,8 +5,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import Question from '../components/Question';
 import ResultModal from '../components/ResultModal';
-import Questions from '../assets/data/Questions.json';
-import { MDBCard, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBBtn, MDBSpinner } from 'mdb-react-ui-kit';
 
 Modal.setAppElement('#root');
 
@@ -17,12 +16,15 @@ const Quiz = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
   const [showResultModal, setShowResultModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const location = useLocation();
   const category = location.state;
   const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
+    setIsLoading(true);
+    // Fetch questions from the API
     const fetchData = async () => {
       try {
         const response = await axios.get('https://quizapi.io/api/v1/questions/', {
@@ -33,7 +35,6 @@ const Quiz = () => {
             'category': category.category.name
           }
         });
-        console.log(response.data)
         if (response.data.length === 0) {
           setNoQuestions(true);
         } else {
@@ -41,11 +42,12 @@ const Quiz = () => {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
-    setQuestions(Questions);
   }, [category]);
 
   // Handle answer selection
@@ -90,27 +92,38 @@ const Quiz = () => {
             <MDBCardBody>
               <h2>Quiz Time!</h2>
 
-              {/* Render current question */}
-              {questions.length > 0 && (
-                <Question
-                  question={questions[currentQuestionIndex]}
-                  selectedAnswer={selectedAnswer}
-                  onSelectAnswer={handleAnswerSelection}
-                />
+              {isLoading ? (
+                // Loading spinner
+                <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "200px" }}>
+                  <MDBSpinner size='lg' output='status' style={{ width: "5rem", height: "5rem"}}>
+                    <span className='visually-hidden'>Loading...</span>
+                  </MDBSpinner>
+                </div>
+              ) : (
+                // Render questions once loaded
+                questions.length > 0 && (
+                  <Question
+                    question={questions[currentQuestionIndex]}
+                    selectedAnswer={selectedAnswer}
+                    onSelectAnswer={handleAnswerSelection}
+                  />
+                )
               )}
 
-              {/* Navigation Controls */}
-              <div className="mt-3">
-                <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
-                <MDBBtn
-                  style={{ backgroundColor: 'var(--dark)' }}
-                  onClick={handleNextQuestion}
-                  className='btn w-50 border-0'
-                  disabled={!selectedAnswer} // Prevent skipping without an answer
-                >
-                  {currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next'}
-                </MDBBtn>
-              </div>
+              {/* Navigation Controls - only show when not loading */}
+              {!isLoading && (
+                <div className="mt-3">
+                  <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
+                  <MDBBtn
+                    style={{ backgroundColor: 'var(--dark)' }}
+                    onClick={handleNextQuestion}
+                    className='btn w-50 border-0'
+                    disabled={!selectedAnswer}
+                  >
+                    {currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next'}
+                  </MDBBtn>
+                </div>
+              )}
             </MDBCardBody>
           </MDBCard>
 
