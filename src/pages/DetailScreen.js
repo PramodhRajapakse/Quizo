@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn, MDBCardImage} from "mdb-react-ui-kit";
 import "../assets/styles/DetailScreen.css";
-import image from "../assets/images/quizo-bg.png"
 
 const DetailScreen = () => {
   const { state } = useLocation();
