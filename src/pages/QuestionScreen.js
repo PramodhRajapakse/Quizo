@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/QuestionScreen.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Modal from 'react-modal';
 import Question from '../components/Question';
-import ResultModal from '../components/ResultModal'; // Import the new component
+import ResultModal from '../components/ResultModal';
 import Questions from '../assets/data/Questions.json';
 import { MDBCard, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
 
-Modal.setAppElement('#root'); // Set the root element for screen readers
+Modal.setAppElement('#root');
 
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
@@ -16,37 +16,35 @@ const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
-  const [showResultModal, setShowResultModal] = useState(false); // Add state for result modal
+  const [showResultModal, setShowResultModal] = useState(false);
 
   const location = useLocation();
-  const navigate = useNavigate();
   const category = location.state;
   const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await axios.get('https://quizapi.io/api/v1/questions/', {
-    //       headers: {
-    //         'X-Api-Key': apiKey, // Set the API key here
-    //       },
-    //       params: {
-    //         'category': category.category.name
-    //       }
-    //     });
-    //     console.log(response.data)
-    //     if (response.data.length === 0) {
-    //       setNoQuestions(true);
-    //     } else {
-    //       setQuestions(response.data);
-    //     }
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // };
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://quizapi.io/api/v1/questions/', {
+          headers: {
+            'X-Api-Key': apiKey,
+          },
+          params: {
+            'category': category.category.name
+          }
+        });
+        console.log(response.data)
+        if (response.data.length === 0) {
+          setNoQuestions(true);
+        } else {
+          setQuestions(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-    // fetchData();
-    console.log(Questions);
+    fetchData();
     setQuestions(Questions);
   }, [category]);
 
