@@ -1,8 +1,8 @@
 {
+  "homepage": "PramodhRajapakse.github.io/quizo",
   "name": "quizo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/PramodhRajapakse/Quizo",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fortawesome/fontawesome-free": "^6.4.2",
