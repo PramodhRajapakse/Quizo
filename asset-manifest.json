@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/quizo/static/css/main.7da4d11c.css",
-    "main.js": "/quizo/static/js/main.1c9c0e75.js",
-    "static/js/453.3469807b.chunk.js": "/quizo/static/js/453.3469807b.chunk.js",
-    "static/media/fa-solid-900.ttf": "/quizo/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
-    "static/media/fa-brands-400.ttf": "/quizo/static/media/fa-brands-400.60127e352b7a11f7f1bc.ttf",
-    "static/media/fa-solid-900.woff2": "/quizo/static/media/fa-solid-900.4d986b00ff9ca3828fbd.woff2",
-    "static/media/fa-brands-400.woff2": "/quizo/static/media/fa-brands-400.455ea818179b4def0c43.woff2",
-    "static/media/fa-regular-400.ttf": "/quizo/static/media/fa-regular-400.eb91f7b948a42799f678.ttf",
-    "static/media/fa-regular-400.woff2": "/quizo/static/media/fa-regular-400.21cb8f55d8e0c5b89751.woff2",
-    "static/media/fa-v4compatibility.ttf": "/quizo/static/media/fa-v4compatibility.c8e090db312b0bea2aa2.ttf",
-    "static/media/quizo_logo_dark.png": "/quizo/static/media/quizo_logo_dark.4493382abb12cc9eb101.png",
-    "static/media/fa-v4compatibility.woff2": "/quizo/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
-    "index.html": "/quizo/index.html",
-    "main.7da4d11c.css.map": "/quizo/static/css/main.7da4d11c.css.map",
-    "main.1c9c0e75.js.map": "/quizo/static/js/main.1c9c0e75.js.map",
-    "453.3469807b.chunk.js.map": "/quizo/static/js/453.3469807b.chunk.js.map"
+    "main.css": "/PramodhRajapakse.github.io/quizo/static/css/main.6e773d10.css",
+    "main.js": "/PramodhRajapakse.github.io/quizo/static/js/main.37f9256e.js",
+    "static/js/453.3469807b.chunk.js": "/PramodhRajapakse.github.io/quizo/static/js/453.3469807b.chunk.js",
+    "static/media/fa-solid-900.ttf": "/PramodhRajapakse.github.io/quizo/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
+    "static/media/fa-brands-400.ttf": "/PramodhRajapakse.github.io/quizo/static/media/fa-brands-400.60127e352b7a11f7f1bc.ttf",
+    "static/media/fa-solid-900.woff2": "/PramodhRajapakse.github.io/quizo/static/media/fa-solid-900.4d986b00ff9ca3828fbd.woff2",
+    "static/media/fa-brands-400.woff2": "/PramodhRajapakse.github.io/quizo/static/media/fa-brands-400.455ea818179b4def0c43.woff2",
+    "static/media/fa-regular-400.ttf": "/PramodhRajapakse.github.io/quizo/static/media/fa-regular-400.eb91f7b948a42799f678.ttf",
+    "static/media/fa-regular-400.woff2": "/PramodhRajapakse.github.io/quizo/static/media/fa-regular-400.21cb8f55d8e0c5b89751.woff2",
+    "static/media/fa-v4compatibility.ttf": "/PramodhRajapakse.github.io/quizo/static/media/fa-v4compatibility.c8e090db312b0bea2aa2.ttf",
+    "static/media/quizo_logo_dark.png": "/PramodhRajapakse.github.io/quizo/static/media/quizo_logo_dark.4493382abb12cc9eb101.png",
+    "static/media/fa-v4compatibility.woff2": "/PramodhRajapakse.github.io/quizo/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
+    "index.html": "/PramodhRajapakse.github.io/quizo/index.html",
+    "main.6e773d10.css.map": "/PramodhRajapakse.github.io/quizo/static/css/main.6e773d10.css.map",
+    "main.37f9256e.js.map": "/PramodhRajapakse.github.io/quizo/static/js/main.37f9256e.js.map",
+    "453.3469807b.chunk.js.map": "/PramodhRajapakse.github.io/quizo/static/js/453.3469807b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7da4d11c.css",
-    "static/js/main.1c9c0e75.js"
+    "static/css/main.6e773d10.css",
+    "static/js/main.37f9256e.js"
   ]
 }
