@@ -1,0 +1,108 @@
+[
+  {
+      "id": 1,
+      "name": "Linux",
+      "imageUrl": "/assets/linux.png"
+  },
+  {
+      "id": 2,
+      "name": "bash",
+      "imageUrl": "/assets/bash.png"
+
+  },
+  {
+      "id": 3,
+      "name": "uncategorized",
+      "imageUrl": "/assets/category.png"
+
+  },
+  {
+      "id": 4,
+      "name": "Docker",
+      "imageUrl": "/assets/docker.png"
+
+  },
+  {
+      "id": 5,
+      "name": "SQL",
+      "imageUrl": "/assets/sql-server.png"
+
+  },
+  {
+      "id": 6,
+      "name": "CMS",
+      "imageUrl": "/assets/cms.png"
+
+  },
+  {
+      "id": 7,
+      "name": "Code",
+      "imageUrl": "/assets/programming.png"
+
+  },
+  {
+      "id": 8,
+      "name": "DevOps",
+      "imageUrl": "/assets/devops.png"
+
+  },
+  {
+      "id": 9,
+      "name": "React",
+      "imageUrl": "/assets/react.png"
+
+  },
+  {
+      "id": 10,
+      "name": "Laravel",
+      "imageUrl": "/assets/php.png"
+
+  },
+  {
+      "id": 11,
+      "name": "Postgres",
+      "imageUrl": "/assets/postgre.png"
+
+  },
+  {
+      "id": 12,
+      "name": "Django",
+      "imageUrl": "/assets/django.png"
+
+  },
+  {
+      "id": 13,
+      "name": "cPanel",
+      "imageUrl": "/assets/cpanel.png"
+
+  },
+  {
+      "id": 14,
+      "name": "NodeJs",
+      "imageUrl": "/assets/nodejs.png"
+
+  },
+  {
+      "id": 15,
+      "name": "WordPress",
+      "imageUrl": "/assets/wordpress.png"
+  },
+  {
+      "id": 16,
+      "name": "Next.js",
+      "imageUrl": "/assets/nextjs.png"
+
+  },
+  {
+      "id": 17,
+      "name": "VueJS",
+      "imageUrl": "/assets/linux.png"
+
+  },
+  {
+      "id": 18,
+      "name": "Apache Kafka",
+      "imageUrl": "/assets/apache-kafka.png"
+
+  }
+]

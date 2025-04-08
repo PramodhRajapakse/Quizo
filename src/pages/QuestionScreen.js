@@ -1,84 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/QuestionScreen.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import he from 'he';
 import Modal from 'react-modal';
+import Question from '../components/Question';
+import ResultModal from '../components/ResultModal';
+import { MDBCard, MDBCardBody, MDBBtn, MDBSpinner } from 'mdb-react-ui-kit';
 
-Modal.setAppElement('#root'); // Set the root element for screen readers
-
+Modal.setAppElement('#root');
 
 const Quiz = () => {
-  const [userAnswers, setUserAnswers] = useState({});
   const [questions, setQuestions] = useState([]);
   const [noQuestions, setNoQuestions] = useState(false);
-  let [score, setScore] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
-  let [ansCount, setAnsCount] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [score, setScore] = useState(0);
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const location = useLocation();
   const category = location.state;
-  const navigate = useNavigate();
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
+    setIsLoading(true);
+    // Fetch questions from the API
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/questions/category/${category.category._id}`);
+        const response = await axios.get('https://quizapi.io/api/v1/questions/', {
+          headers: {
+            'X-Api-Key': apiKey,
+          },
+          params: {
+            'category': category.category.name
+          }
+        });
         if (response.data.length === 0) {
           setNoQuestions(true);
         } else {
-          const processedQuestionsArray = response.data.map((question) => ({
-            ...question,
-            options: [question.correctAnswer, ...question.incorrectAnswers]
-          }));
-          setQuestions(processedQuestionsArray);
+          setQuestions(response.data);
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, [category]);
 
-  const closeModal = () => {
-    setModalOpen(false);
+  // Handle answer selection
+  const handleAnswerSelection = (answerKey, isCorrect) => {
+    setSelectedAnswer(answerKey);
+    if (isCorrect) setScore(prevScore => prevScore + 1);
   };
 
-  const customStyles = {
-    content: {
-      maxWidth: '400px',
-      maxHeight: '200px',
-      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add shadow for a card-like appearance
-      borderRadius: '10px', // Add border-radius for rounded corners
-      padding: '20px', // Add padding for content spacing
-      margin: 'auto',
-      textAlign: 'center',
-    },
-  };
-
-  const handleAnswerSelect = (questionId, selectedAnswer) => {
-    calculateScore(questionId, selectedAnswer);
-    setUserAnswers({
-      ...userAnswers,
-      [questionId]: selectedAnswer,
-    });
-  };
-
-  const calculateScore = (id, selected) => {
-    ansCount++;
-    setAnsCount(ansCount);
-    if (ansCount === 10) {
-      setModalOpen(true);
+  // Handle next question
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+      setSelectedAnswer(null); // Reset selected answer for new question
     } else {
-      questions.forEach((question) => {
-        if (question._id === id)
-          if (question.correctAnswer === selected) {
-            score++;
-            setScore(score);
-          }
-      })
+      // Show the result modal instead of an alert
+      setShowResultModal(true);
     }
+  };
 
+  // Handle retry quiz
+  const handleRetryQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setSelectedAnswer(null);
+    setShowResultModal(false);
+  };
+
+  // Handle close modal
+  const handleCloseModal = () => {
+    setShowResultModal(false);
   };
 
   return (
@@ -89,53 +88,53 @@ const Quiz = () => {
         </div>
       ) : (
         <>
-          <h1>Quiz Time!</h1>
-          <div className="score-container">
-          </div>
-          <Modal
-            isOpen={modalOpen}
-            onRequestClose={closeModal}
-            contentLabel="Quiz Results"
-            style={customStyles}
-            onAfterClose={() => navigate("/categories")}
-          >
-            <h2>Your Score</h2>
-            <p>Your score: {score} out of {questions.length}</p>
-            <button className='bg-dark text-light text-center mt-3' onClick={closeModal}>Continue</button>
-          </Modal>
-          {questions.map((question) => (
-            <div key={question._id} className="question-container">
-              <p className="question-text">{he.decode(question.question)}</p>
-              {question.type === 'multiple' ? (
-                <ul className="answer-options">
-                  {question.options.map((option) => (
-                    <li key={option}>
-                      <button
-                        className={userAnswers[question._id] === option ? 'selected' : ''}
-                        onClick={() => handleAnswerSelect(question._id, option)}
-                        disabled={userAnswers[question._id] !== undefined}
-                      >
-                        {option}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+          <MDBCard className="p-4 text-center">
+            <MDBCardBody>
+              <h2>Quiz Time!</h2>
+
+              {isLoading ? (
+                // Loading spinner
+                <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "200px" }}>
+                  <MDBSpinner size='lg' output='status' style={{ width: "5rem", height: "5rem"}}>
+                    <span className='visually-hidden'>Loading...</span>
+                  </MDBSpinner>
+                </div>
               ) : (
-                <div className="answer-options">
-                  {question.options.map((option) => (
-                    <button
-                      key={option}
-                      onClick={() => handleAnswerSelect(question._id, option)}
-                      disabled={userAnswers[question._id] !== undefined}
-                      className={userAnswers[question._id] === option ? 'selected' : ''}
-                    >
-                      {option}
-                    </button>
-                  ))}
+                // Render questions once loaded
+                questions.length > 0 && (
+                  <Question
+                    question={questions[currentQuestionIndex]}
+                    selectedAnswer={selectedAnswer}
+                    onSelectAnswer={handleAnswerSelection}
+                  />
+                )
+              )}
+
+              {/* Navigation Controls - only show when not loading */}
+              {!isLoading && (
+                <div className="mt-3">
+                  <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
+                  <MDBBtn
+                    style={{ backgroundColor: 'var(--dark)' }}
+                    onClick={handleNextQuestion}
+                    className='btn w-50 border-0'
+                    disabled={!selectedAnswer}
+                  >
+                    {currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next'}
+                  </MDBBtn>
                 </div>
               )}
-            </div>
-          ))}
+            </MDBCardBody>
+          </MDBCard>
+
+          {/* Result Modal */}
+          <ResultModal
+            isOpen={showResultModal}
+            score={score}
+            totalQuestions={questions.length}
+            onClose={handleCloseModal}
+            onRetry={handleRetryQuiz}
+          />
         </>
       )}
     </div>

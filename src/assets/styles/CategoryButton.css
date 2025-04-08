@@ -1,22 +1,35 @@
-.categoryBtnContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 60%;
-  gap: 30px;
-  margin-top: 40px;
-  margin-bottom: 45px;
+.category-card {
+  height: 200px !important;
+  width: 200px !important;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--light) !important;
+  border: 0px;
+  cursor: pointer;
+  color: var(--dark) !important;
 }
 
-.categoryBtn {
-  border-radius: 10px;
-  padding: 14px 10px;
-  display: flex;
-  align-items: center;
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(69, 29, 29, 0.1);
+  background-color: var(--dark) !important;
+  color: var(--light) !important;
 }
 
-.categoryBtnText {
-  font-size: 13px;
-  font-weight: 600;
-  margin-left: 10px;
+.category-card.selected {
+  transform: translateY(-5px);
+  background-color: var(--dark) !important;
+  color: var(--light) !important;
+}
+
+.category-card-title {
+  font-size: 1.5rem;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.category-card-image {
+  width: 100%; /* Ensure the image spans the full width */
+  height: 100px; /* Set a fixed height for the image */
+  object-fit: contain; /* Ensures the image is cropped proportionally */
 }

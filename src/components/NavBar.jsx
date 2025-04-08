@@ -1,62 +1,39 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/AuthProvider";
-import { MDBBtn } from "mdb-react-ui-kit";
+import logo from '../assets/images/quizo_logo_dark.png';
 
 const NavBar = () => {
-	const { token, logout } = useAuth();
-	const navigate = useNavigate();
+    const navigate = useNavigate();
 
-	const handleLogout = () => {
-		logout();
-		navigate("/");
-	};
+    return (
+        <nav
+				style={{ backgroundColor: "var(--navy)" }}
+				className="navbar navbar-expand-lg navbar-dark">
+            <div className="container-fluid">
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i className="fas fa-bars"></i>
+                </button>
 
-	return (
-		<nav className="navbar navbar-expand-lg navbar-light">
-			<div className="container-fluid">
-				<button
-					className="navbar-toggler"
-					type="button"
-					data-mdb-toggle="collapse"
-					data-mdb-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<i className="fas fa-bars"></i>
-				</button>
-
-				<div className="d-flex align-items-center">
-					{token ? (
-						<MDBBtn
-							onClick={handleLogout}
-							className="nav-link p-2"
-							color="link"
-						>
-							Logout
-						</MDBBtn>
-					) : null}
-					<div className="dropdown">
-						<a
-							className="dropdown-toggle d-flex align-items-center hidden-arrow"
-							href="/"
-							id="navbarDropdownMenuAvatar"
-							role="button"
-							data-mdb-toggle="dropdown"
-							aria-expanded="false"
-						>
-							<img
-								src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-								className="rounded-circle"
-								height="25"
-								alt="Black and White Portrait of a Man"
-								loading="lazy"
-							/>
-						</a>
-					</div>
-				</div>
-			</div>
-		</nav>
-	);
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <a className="navbar-brand" href="/">
+                        <img src={logo} height="30" alt="Company logo" />
+                    </a>
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
 };
+
 export default NavBar;

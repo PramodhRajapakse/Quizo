@@ -1,6 +1,13 @@
 .body {
-    height: 90vh;
     display: flex;
+}
+
+.categoryScreen {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .heading {
@@ -22,5 +29,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    padding: 25px;
+    padding: 10px;
+}
+
+.continueBtn {
+    background-color: var(--navy);
 }
