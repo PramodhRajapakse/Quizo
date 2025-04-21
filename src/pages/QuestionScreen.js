@@ -27,12 +27,15 @@ const Quiz = () => {
     // Fetch questions from the API
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/questions', {
+        console.log(apiKey)
+        const response = await axios.get('https://quizapi.io/api/v1/questions/', {
+          headers: {
+            'X-Api-Key': apiKey,
+          },
           params: {
-            category: category.category.name
+            'category': category.category.name
           }
         });
-
         if (response.data.length === 0) {
           setNoQuestions(true);
         } else {
@@ -44,6 +47,7 @@ const Quiz = () => {
         setIsLoading(false);
       }
     };
+
     fetchData();
   }, [category]);
 
