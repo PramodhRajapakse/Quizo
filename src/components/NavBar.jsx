@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import logo from '../assets/images/quizo_logo_dark.png';
 
 const NavBar = () => {
-    const navigate = useNavigate();
 
     return (
         <nav

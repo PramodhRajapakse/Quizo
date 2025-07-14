@@ -11,7 +11,6 @@ const CategoryScreen = () => {
   const [isDisabled, setIsDisabled] = useState(true);
   let navigate = useNavigate();
 
-
   useEffect(() => {
     setCategories(data);
   }, []);
@@ -33,6 +32,7 @@ const CategoryScreen = () => {
         <p className="detailText">Select category to start quiz</p>
       </div>
       <div className="categoryContainer">
+
         {categories.map((category) => {
           return (
             <CategoryButton

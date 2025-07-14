@@ -27,7 +27,6 @@ const Quiz = () => {
     // Fetch questions from the API
     const fetchData = async () => {
       try {
-        console.log(apiKey)
         const response = await axios.get('https://quizapi.io/api/v1/questions/', {
           headers: {
             'X-Api-Key': apiKey,
