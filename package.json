@@ -20,9 +20,7 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
-    "react-tsparticles": "^2.12.2",
     "save": "^2.9.0",
-    "tsparticles": "^3.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
