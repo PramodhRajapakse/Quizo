@@ -4,6 +4,7 @@ import "../assets/styles/CategoryScreen.css";
 import { useEffect, useState } from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
 import data from "../assets/data/Categories.json";
+import ParticleBackground from "../components/ParticleBackground";
 
 const CategoryScreen = () => {
   const [categories, setCategories] = useState([]);
@@ -27,6 +28,7 @@ const CategoryScreen = () => {
 
   return (
     <div className="categoryScreen">
+      <ParticleBackground />
       <div className="container-fluid text-center">
         <p className="heading">Welcome to Quizo</p>
         <p className="detailText">Select category to start quiz</p>
