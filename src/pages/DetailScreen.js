@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn, MDBCardImage} from "mdb-react-ui-kit";
 import "../assets/styles/DetailScreen.css";
+import ParticleBackground from "../components/ParticleBackground";
 
 const DetailScreen = () => {
   const { state } = useLocation();
@@ -20,6 +21,7 @@ const DetailScreen = () => {
   return (
      <div
       className="quiz-start-container d-flex justify-content-center align-items-center">
+        <ParticleBackground />
      <MDBCard className="text-center quiz-start-card">
        <MDBCardBody>
          <MDBCardTitle className="appTitle">Quizo</MDBCardTitle>
